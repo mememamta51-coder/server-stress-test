@@ -1,0 +1,26 @@
+name: Server Stress Test
+
+on:
+  workflow_dispatch: # Allows you to run this workflow manually from the Actions tab
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.8'
+
+    - name: Make scan script executable
+      run: chmod +x scan.sh
+
+    - name: Run attack script
+      run: python3 attack.py 217.156.22.135 27015
+      env:
+        # This is just to pass the target, the script takes it as arguments
+        TARGET_IP: "46.203.233.33"
+        TARGET_PORT: "27015"
