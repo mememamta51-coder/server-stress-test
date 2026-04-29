@@ -19,7 +19,7 @@ jobs:
       run: chmod +x scan.sh
 
     - name: Run attack script
-      run: python3 attack.py 217.156.22.135 27015
+      run: python3 attack.py 46.203.233.33 27015
       env:
         # This is just to pass the target, the script takes it as arguments
         TARGET_IP: "46.203.233.33"
